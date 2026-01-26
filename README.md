@@ -1,1 +1,0 @@
-# auth-gateway-app-UI
