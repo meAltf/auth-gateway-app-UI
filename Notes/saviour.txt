@@ -1,0 +1,4 @@
+  118  git reflog - it shown Those commit: lines are your lost commits
+  119  git reset --hard [commit-last] - Identify the commit BEFORE things went wrong and run this
+  120  git log --oneline - shown all commits as earlier
+  121  git push -f origin main - must force-push (because GitHub history was rewritten)
