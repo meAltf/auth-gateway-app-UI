@@ -17,8 +17,17 @@ export class authService {
     });
   }
 
+// withCredentials: true, responseType: 'text' | only if you're sure that API's response not coming in JSON form, bcz default
+// http treat respone as JSON .
+
   logout(): Observable<any> {
     return this.http.post(`${this.BASE_URL}/api/auth/logout`, {}, {
+      withCredentials: true
+    });
+  }
+
+  checkSession() {
+    return this.http.get(`${this.BASE_URL}/api/auth/session`, {
       withCredentials: true
     });
   }

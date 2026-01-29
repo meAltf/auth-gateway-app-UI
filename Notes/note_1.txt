@@ -1,0 +1,28 @@
+1. What is an Observable?
+    An Observable is something that gives data over time.
+    Not just once — it can give multiple values.
+    Angular uses Observables a lot for API calls, events, async data.
+    Very powerful with operators like map, filter, catchError.
+
+2. subscribe() means :
+    “Hey Observable, start sending me data”.
+
+3. Key points to remember:
+    Observable does nothing until you subscribe
+    It can emit: data, error, complete signal
+    You should unsubscribe to avoid memory leaks
+
+4. pipe() like a processing pipeline:
+    API response → process → decide → output
+
+5. of(false) means:
+    “Return an Observable that emits false.” | Observable<true | false>
+
+6. Simple analogy:
+
+    Promise → “I’ll give you data once”. | It's auto executes, Cannot cancel, one value
+    Observable → “I’ll keep giving you data whenever it changes”. | It's Executes on subscribe, can cancel, multiple value
+
+Important:
+    HTTP is async because the browser sends the request, continues execution, 
+    and notifies Angular later when the response arrives.
