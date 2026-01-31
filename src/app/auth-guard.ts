@@ -11,7 +11,8 @@ export const authGuard: CanActivateFn = () => {
   return authServiceInAuthGuard.checkSession().pipe(
     map(() => true),
     catchError(() => {
-      router.navigate(['/login']);
+      // router.navigate(['/login']);
+      authServiceInAuthGuard.handleSessionExpired();
       return of(false);
     })
   );

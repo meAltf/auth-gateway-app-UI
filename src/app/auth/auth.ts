@@ -8,25 +8,27 @@ import { Observable } from 'rxjs';
 export class authService {
 
   private readonly BASE_URL = 'http://localhost:8080';
+  router: any;
+  toastService: any;
 
   constructor(private http: HttpClient) { }
 
   login(payload: { username: string, password: string }): Observable<any> {
-    return this.http.post(`${this.BASE_URL}/api/auth/login`, payload) ;
-    
+    return this.http.post(`${this.BASE_URL}/api/auth/login`, payload);
+
     // , {
     //  withCredentials: true, responseType: 'text' | not required as Interceptor will handle it globally
     // });
   }
 
-// withCredentials: true, responseType: 'text' | only if you're sure that API's response not coming in JSON form, bcz default
-// http treat respone as JSON .
+  // withCredentials: true, responseType: 'text' | only if you're sure that API's response not coming in JSON form, bcz default
+  // http treat respone as JSON .
 
   logout(): Observable<any> {
     return this.http.post(`${this.BASE_URL}/api/auth/logout`, {});
 
     // , {
-     // withCredentials: true | not required as Interceptor will handle it globally
+    // withCredentials: true | not required as Interceptor will handle it globally
     // });
   }
 
@@ -36,6 +38,11 @@ export class authService {
     // , {
     //  withCredentials: true | not required as Interceptor will handle it globally
     // });
+  }
+
+  handleSessionExpired() {
+    this.toastService.show('Session expired. Please login again.');
+    this.router.navigate(['/session-expired']);
   }
 
 }
