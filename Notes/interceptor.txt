@@ -1,0 +1,14 @@
+With an Interceptor:
+    Attach credentials (cookies / headers)
+    Every HTTP request passes through one place
+    We catch 401 / 403 globally
+    Auto-logout + redirect to /login
+    Cleaner components (less code)
+
+
+| Layer       | Responsibility     |
+| ----------- | ------------------ |
+| Guard       | Validate session   |
+| Interceptor | Handle HTTP errors |
+| Component   | Display data only  |
+| Service     | Business logic     |
