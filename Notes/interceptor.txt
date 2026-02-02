@@ -12,3 +12,11 @@ With an Interceptor:
 | Interceptor | Handle HTTP errors |
 | Component   | Display data only  |
 | Service     | Business logic     |
+
+
+Session expired
+→ API → 401
+→ interceptor catches
+→ toast shown
+→ redirect to /session-expired
+→ guard blocks further access
